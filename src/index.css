@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-gray-100 bg-background antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .light body {
+    @apply text-light-text-primary bg-light-background;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+    line-height: 1.2;
+  }
+
+  h1 {
+    @apply text-3xl lg:text-4xl;
+  }
+
+  h2 {
+    @apply text-2xl lg:text-3xl;
+  }
+
+  h3 {
+    @apply text-xl lg:text-2xl;
+  }
+
+  p {
+    line-height: 1.5;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-background-light rounded-lg border border-gray-800 shadow-md transition-all duration-300;
+  }
+
+  .light .card {
+    @apply bg-light-surface border-light-border shadow-sm;
+  }
+
+  .card-hover {
+    @apply hover:bg-background-lighter hover:border-gray-700 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .light .card-hover {
+    @apply hover:bg-light-surface-hover hover:border-light-border-hover hover:shadow-md;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 active:scale-95;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-600 focus-visible:ring-primary-500 hover:shadow-lg hover:shadow-primary/20;
+  }
+
+  .light .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-600 focus-visible:ring-primary-500;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary-600 focus-visible:ring-secondary-500 hover:shadow-lg hover:shadow-secondary/20;
+  }
+
+  .light .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary-600 focus-visible:ring-secondary-500;
+  }
+
+  .btn-outline {
+    @apply border border-gray-700 bg-transparent text-gray-200 hover:bg-gray-800 hover:border-gray-600;
+  }
+
+  .light .btn-outline {
+    @apply border-light-border bg-transparent text-light-text-secondary hover:bg-light-surface-hover hover:border-light-border-hover;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-gray-300 hover:bg-gray-800 hover:text-gray-100;
+  }
+
+  .light .btn-ghost {
+    @apply bg-transparent text-light-text-secondary hover:bg-light-surface-hover hover:text-light-text-primary;
+  }
+
+  .input {
+    @apply flex h-10 w-full rounded-md border border-gray-700 bg-background-lighter px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors duration-200;
+  }
+
+  .light .input {
+    @apply border-light-border bg-light-surface placeholder:text-light-text-tertiary text-light-text-primary focus-visible:ring-primary-400;
+  }
+
+  .sidebar-item {
+    @apply flex items-center gap-3 rounded-md px-3 py-2 text-gray-400 transition-all duration-200 hover:bg-gray-800 hover:text-gray-100 hover:translate-x-1;
+  }
+
+  .light .sidebar-item {
+    @apply text-light-text-secondary hover:bg-light-surface-hover hover:text-light-text-primary;
+  }
+
+  .sidebar-item-active {
+    @apply bg-gray-800 text-gray-100;
+  }
+
+  .light .sidebar-item-active {
+    @apply bg-light-surface-active text-light-text-primary;
+  }
+
+  .tab {
+    @apply inline-flex items-center justify-center whitespace-nowrap px-3 py-1.5 text-sm font-medium ring-offset-background transition-all duration-200 hover:text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 relative;
+  }
+
+  .light .tab {
+    @apply hover:text-light-text-primary ring-offset-light-background;
+  }
+
+  .tab-active {
+    @apply text-gray-100;
+  }
+
+  .light .tab-active {
+    @apply text-light-text-primary;
+  }
+
+  .tab-active::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full transition-all duration-200;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+.light ::-webkit-scrollbar-track {
+  @apply bg-light-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-700 rounded-full transition-colors duration-200;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  @apply bg-light-border;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-600;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  @apply bg-light-border-hover;
+}
+
+/* Add smooth transitions for all interactive elements */
+a, button, input, select, textarea {
+  @apply transition-all duration-200;
+}
+
+/* Add hover effects for cards and interactive elements */
+.hover-lift {
+  @apply transition-transform duration-200 hover:-translate-y-1;
+}
+
+.hover-glow {
+  @apply transition-shadow duration-200 hover:shadow-lg;
+}
+
+/* Add subtle pulse animation for notifications and indicators */
+.pulse {
+  @apply animate-pulse;
+}
+
+/* Add bounce animation for interactive elements */
+.bounce-hover {
+  @apply hover:animate-bounce-sm;
+}
+
+/* Add scale animation for clicks */
+.scale-click {
+  @apply active:scale-95 transition-transform duration-200;
+}
